@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: fr3akyphantom/droid-builder:latest
     environment:
-      MANIFEST_BRANCH: 'elecen'
+      MANIFEST_BRANCH: 'eleven'
       VERSION: '3.0.0'
       MAINTAINER: 'MOHIT'
       VENDOR: 'xiaomi'

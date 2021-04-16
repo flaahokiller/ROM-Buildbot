@@ -4,12 +4,12 @@ jobs:
     docker:
       - image: fr3akyphantom/droid-builder:latest
     environment:
-      MANIFEST_BRANCH: 'android-9.0'
+      MANIFEST_BRANCH: 'elecen'
       VERSION: '3.0.0'
-      MAINTAINER: '@TechyMinati'
-      VENDOR: 'realme'
-      CODENAME: 'RMX1831'
-      FLAVOR: 'eng'
+      MAINTAINER: 'MOHIT'
+      VENDOR: 'xiaomi'
+      CODENAME: 'ysl'
+      FLAVOR: 'userdebug'
       #TEST_BUILD: 'true'
       PB_OFFICIAL: 'true'
       CHANGELOG: |
@@ -26,12 +26,12 @@ jobs:
            sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
            sudo chmod a+rx /usr/local/bin/repo
            mkdir stuff &&cd stuff
-           repo init -u git://github.com/LineageOS/android.git -b lineage-18.0 --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
+           repo init -u https://github.com/PixelPlusUI-Elle/manifest -b eleven --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
            repo sync --force-sync -j69
-           git clone --depth=1 --single-branch https://github.com/Pulkit077/device_xiaomi_rosy device/xiaomi/rosy
-           git clone --depth=1 --single-branch https://github.com/Pulkit077/vendor_xiaomi_rosy vendor/xiaomi/rosy
-           git clone --depth=1 --single-branch https://github.com/Pulkit077/kernel_xiaomi_rosy kenrel/xiaomi/rosy 
-           . build/envsetup.sh &&brunch rosy
+           git clone --depth=1 --single-branch https://github.com/flaahokiller/android_device_xiaomi_ysl device/xiaomi/ysl
+           git clone --depth=1 --single-branch https://github.com/ItsVixano/android_vendor_xiaomi_ysl vendor/xiaomi/ysl
+           git clone --depth=1 https://github.com/flaahokiller/flasho_Ysl -b MaB kenrel/xiaomi/ysl
+           . build/envsetup.sh && mka bacon -j8
 workflows:
   version: 2.1
   build_and_test:
@@ -39,5 +39,5 @@ workflows:
       - build:
           filters:
             branches:
-              only: 'android-9.0'
+              only: 'eleven'
           context: org-global

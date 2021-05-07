@@ -25,8 +25,8 @@ jobs:
            sudo apt-get -y update && sudo apt-get -y install git openjdk-8-jdk wget p7zip-full p7zip-rar python python3 rsync sshpass adb autoconf automake axel bc bison build-essential ccache clang cmake expat fastboot flex g++ g++-multilib gawk gcc gcc-multilib git gnupg gperf htop imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libc6-dev libcap-dev libexpat1-dev libgmp-dev '^liblz4-.*' '^liblzma.*' libmpc-dev libmpfr-dev libncurses5-dev libsdl1.2-dev libssl-dev libtool libxml2 libxml2-utils '^lzma.*' lzop maven ncftp ncurses-dev patch patchelf pkg-config pngcrush pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion texinfo unzip w3m xsltproc zip zlib1g-dev lzip libxml-simple-perl apt-utils 
            sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
            sudo chmod a+rx /usr/local/bin/repo
-           mkdir stuff &&cd stuff
-           repo init -u https://github.com/PixelPlusUI-Elle/manifest -b eleven --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
+           mkdir stuff && cd stuff
+           repo init -u git://github.com/AOSiP/platform_manifest.git -b eleven --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
            repo sync --force-sync -j69
            git clone --depth=1 --single-branch https://github.com/flaahokiller/android_device_xiaomi_ysl device/xiaomi/ysl
            git clone --depth=1 --single-branch https://github.com/ItsVixano/android_vendor_xiaomi_ysl vendor/xiaomi/ysl
